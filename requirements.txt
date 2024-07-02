@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+pydantic
+sqlalchemy
+mysql-connector-python
+alembic
+python-dotenv
+pytest
+requests
+pymysql

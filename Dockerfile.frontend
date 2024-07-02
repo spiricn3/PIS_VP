@@ -1,0 +1,14 @@
+# Koristi službenu Nginx sliku kao osnovu
+FROM nginx:alpine
+
+# Kopiraj statičke fajlove u Nginx web root
+COPY web /usr/share/nginx/html
+
+# Kopiraj Nginx konfiguraciju
+# COPY nginx.conf /etc/nginx/nginx.conf
+
+# Izlaganje porta
+EXPOSE 80
+
+# Definiši komandu za pokretanje Nginxa
+CMD ["nginx", "-g", "daemon off;"]

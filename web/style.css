@@ -1,0 +1,51 @@
+*{
+    font-family: "Poppins", sans-serif;
+}
+
+.w3-teal{
+    display: flex;
+}
+
+table{
+    margin-top:20px;
+    border: 1px solid black;
+}
+
+th{
+    background-color: #F0F0F0 !important;
+}
+
+.action-button:hover{
+    cursor: pointer;
+}
+
+.action-button{
+    width: fit-content;
+}
+
+.add-button{
+    margin: 10px;
+    border: none;
+    background-color: #009688;
+    color: white;
+    padding: 5px 15px;
+}
+
+.button-wrapper{
+    display: flex;
+    width: 100%;
+    justify-content: end;
+    padding: 8px;
+}
+
+.modal-body input{
+    margin: 10px 0;
+}
+
+#greskaUpisa, #greskaUpisaUpdate{
+    color: red
+}
+
+.bi-pencil:hover{
+    cursor: pointer;
+}

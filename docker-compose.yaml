@@ -1,0 +1,67 @@
+
+services:
+  db:
+    container_name: db
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+    volumes:
+      - ./db_data:/var/lib/mysql
+
+  phpmyadmin:
+    container_name: myadmin
+    image: phpmyadmin/phpmyadmin:latest
+    restart: always
+    environment:
+      PMA_HOST: db 
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    depends_on:
+      - db 
+
+  app:
+    container_name: app_backend
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    image: app_backend
+    restart: always
+    ports:
+      - "8000:80"
+    env_file: 
+      - .env
+    depends_on:
+      - db
+
+  web:
+    container_name: app_frontend
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    image: app_frontend
+    restart: always
+    depends_on:
+      - db
+
+  proxy:
+    container_name: proxy
+    build:
+      context: .
+      dockerfile: Dockerfile.nginx
+    image: app_proxy
+    restart: always
+    ports:
+      - "80:80"
+    depends_on:
+      - app
+      - web
+      - phpmyadmin
+
+# volumes:
+#   db_data:
+#     driver: local
+#     driver_opts:
+#       type: none
+#       o: bind
+#       device: ${PWD}/db_data
