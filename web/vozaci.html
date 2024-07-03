@@ -47,16 +47,25 @@
                         <div class="modal-body">
                             <!-- <input type="text" class="form-control" placeholder="id" aria-label="id" id="id"> -->
                             <input type="text" class="form-control" placeholder="Ime" aria-label="Ime" id="ime">
-                            <input type="text" class="form-control" placeholder="Prezime" aria-label="Username" id="prezime">
-                            <input type="text" class="form-control" placeholder="Broj vozacke dozvole" aria-label="Username" id="broj_vozacke_dozvole">
-                            <input type="date" class="form-control" placeholder="Datum isteka dozvole" aria-label="Username" id="datum_isteka_dozvole">
-                            <input type="text" class="form-control" placeholder="Kategorije ozacke dozvole" aria-label="Username" id="kategorije_vozacke_dozvole">
-                            <input type="text" class="form-control" placeholder="Kontakt informacije" aria-label="Username" id="kontakt_informacije">
-                            <input type="text" class="form-control" placeholder="Ogranicenja za voznju" aria-label="Username" id="ogranicenja_za_voznju">
+                            <input type="text" class="form-control" placeholder="Prezime" aria-label="Username"
+                                id="prezime">
+                            <input type="text" class="form-control" placeholder="Broj vozacke dozvole"
+                                aria-label="Username" id="broj_vozacke_dozvole">
+                            <form>
+                                <label for="datum_isteka_dozvole">Datum isteka dozvole</label>
+                                <input type="date" class="form-control" placeholder="Datum isteka dozvole"
+                                    aria-label="Username" id="datum_isteka_dozvole">
+                            </form>
+                            <input type="text" class="form-control" placeholder="Kategorije ozacke dozvole"
+                                aria-label="Username" id="kategorije_vozacke_dozvole">
+                            <input type="text" class="form-control" placeholder="Kontakt informacije"
+                                aria-label="Username" id="kontakt_informacije">
+                            <input type="text" class="form-control" placeholder="Ogranicenja za voznju"
+                                aria-label="Username" id="ogranicenja_za_voznju">
                             <select class="form-control" id="status">
                                 <option value="aktivno">Aktivno</option>
                                 <option value="neaktivno">Neaktivno</option>
-                            </select>  
+                            </select>
                             <p id="greskaUpisa"></p>
                         </div>
                         <div class="modal-footer">
@@ -93,36 +102,45 @@
     </div>
 
     <!-- Update modal -->
-    <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="exampleModalLabel">Izmjeni vozaca</h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <!-- <input type="text" class="form-control" placeholder="id" aria-label="id" id="idUpdate"> -->
-                            <input type="text" class="form-control" placeholder="ime" aria-label="ime" id="imeUpdate">
-                            <input type="text" class="form-control" placeholder="prezime" aria-label="prezime" id="prezimeUpdate">
-                            <input type="text" class="form-control" placeholder="broj_vozacke_dozvole" aria-label="Username" id="broj_vozacke_dozvoleUpdate">
-                            <input type="date" class="form-control" placeholder="datum_isteka_dozvole" aria-label="Username" id="datum_isteka_dozvoleUpdate">
-                            <input type="text" class="form-control" placeholder="kategorije_vozacke_dozvole" aria-label="Username" id="kategorije_vozacke_dozvoleUpdate">
-                            <input type="text" class="form-control" placeholder="kontakt_informacije" aria-label="Username" id="kontakt_informacijeUpdate">
-                            <input type="text" class="form-control" placeholder="ogranicenja_za_voznju" aria-label="Username" id="ogranicenja_za_voznjuUpdate">
-                            <select class="form-control" id="statusUpdate">
-                                <option value="aktivno">Aktivno</option>
-                                <option value="neaktivno">Neaktivno</option>
-                            </select>                        
-                            <p id="greskaUpisaUpdate"></p>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Odbaci</button>
-                            <button type="button" class="btn btn-primary" onclick="updateVozaca()">Sačuvaj izmjene</button>
-                        </div>
-                    </div>
+    <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Izmjeni vozaca</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- <input type="text" class="form-control" placeholder="id" aria-label="id" id="idUpdate"> -->
+                    <input type="text" class="form-control" placeholder="ime" aria-label="ime" id="imeUpdate">
+                    <input type="text" class="form-control" placeholder="prezime" aria-label="prezime"
+                        id="prezimeUpdate">
+                    <input type="text" class="form-control" placeholder="broj_vozacke_dozvole" aria-label="Username"
+                        id="broj_vozacke_dozvoleUpdate">
+
+                    <form>
+                        <label for="datum_isteka_dozvoleUpdate">Datum isteka dozvole</label>
+                        <input type="date" class="form-control" placeholder="datum_isteka_dozvole" aria-label="Username"
+                            id="datum_isteka_dozvoleUpdate">
+                    </form>
+                    <input type="text" class="form-control" placeholder="kategorije_vozacke_dozvole"
+                        aria-label="Username" id="kategorije_vozacke_dozvoleUpdate">
+                    <input type="text" class="form-control" placeholder="kontakt_informacije" aria-label="Username"
+                        id="kontakt_informacijeUpdate">
+                    <input type="text" class="form-control" placeholder="ogranicenja_za_voznju" aria-label="Username"
+                        id="ogranicenja_za_voznjuUpdate">
+                    <select class="form-control" id="statusUpdate">
+                        <option value="aktivno">Aktivno</option>
+                        <option value="neaktivno">Neaktivno</option>
+                    </select>
+                    <p id="greskaUpisaUpdate"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Odbaci</button>
+                    <button type="button" class="btn btn-primary" onclick="updateVozaca()">Sačuvaj izmjene</button>
                 </div>
             </div>
+        </div>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"

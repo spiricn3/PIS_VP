@@ -51,16 +51,22 @@
                                 id="vozac_id">
                             <input type="text" class="form-control" placeholder="Opis zadatka" aria-label="Username"
                                 id="opis_zadatka">
-                            <input type="datetime-local" value="2023-01-01T12:00" class="form-control"
-                                placeholder="Datum i vrijeme izdavanja" aria-label="Username"
-                                id="datum_i_vrijeme_izdavanja">
-                            <input type="datetime-local" value="2023-01-01T12:00" class="form-control"
-                                placeholder="Rok zavrsavanja" aria-label="Username" id="rok_zavrsavanja">
-                                <select class="form-control" id="status">
-                                    <option value="otvoren">Otvoren</option>
-                                    <option value="u toku">U toku</option>
-                                    <option value="zatvoren">Zatvoren</option>
-                                </select>
+                            <form>
+                                <label for="datum_i_vrijeme_izdavanja">Datum i vrijeme izdavanja</label>
+                                <input type="datetime-local" value="2023-01-01T12:00" class="form-control"
+                                    placeholder="Datum i vrijeme izdavanja" aria-label="Username"
+                                    id="datum_i_vrijeme_izdavanja">
+                            </form>
+                            <form>
+                                <label for="rok_zavrsavanja">Rok zavrsavanja</label>
+                                <input type="datetime-local" value="2023-01-01T12:00" class="form-control"
+                                    placeholder="Rok zavrsavanja" aria-label="Username" id="rok_zavrsavanja">
+                            </form>
+                            <select class="form-control" id="status">
+                                <option value="otvoren">Otvoren</option>
+                                <option value="u toku">U toku</option>
+                                <option value="zatvoren">Zatvoren</option>
+                            </select>
                             <p id="greskaUpisa"></p>
                         </div>
                         <div class="modal-footer">
@@ -108,16 +114,22 @@
                         id="voziloUpdate">
                     <input type="text" class="form-control" placeholder="Opis zadatka" aria-label="Username"
                         id="opisZadatkaUpdate">
-                    <input type="datetime-local" value="2023-01-01T12:00" class="form-control"
-                        placeholder="Datum i vrijeme izdavanja" aria-label="Username"
-                        id="datum_i_vrijeme_izdavanjaUpdate">
-                    <input type="datetime-local" value="2023-01-01T12:00" class="form-control" placeholder="Gorivo"
-                        aria-label="Username" id="rok_zavrsavanjaUpdate">
-                        <select class="form-control" id="statusUpdate">
-                            <option value="otvoren">Otvoren</option>
-                            <option value="u toku">U toku</option>
-                            <option value="zatvoren">Zatvoren</option>
-                        </select>
+                    <form>
+                        <label for="datum_i_vrijeme_izdavanjaUpdate">Datum i vrijeme izdavanja</label>
+                        <input type="datetime-local" value="2023-01-01T12:00" class="form-control"
+                            placeholder="Datum i vrijeme izdavanja" aria-label="Username"
+                            id="datum_i_vrijeme_izdavanjaUpdate">
+                    </form>
+                    <form>
+                        <label for="rok_zavrsavanjaUpdate">Rok zavrsavanja</label>
+                        <input type="datetime-local" value="2023-01-01T12:00" class="form-control"
+                            placeholder="Rok zavrsavanja" aria-label="Username" id="rok_zavrsavanjaUpdate">
+                    </form>
+                    <select class="form-control" id="statusUpdate">
+                        <option value="otvoren">Otvoren</option>
+                        <option value="u toku">U toku</option>
+                        <option value="zatvoren">Zatvoren</option>
+                    </select>
                     <p id="greskaUpisaUpdate"></p>
                 </div>
                 <div class="modal-footer">

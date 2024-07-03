@@ -7,7 +7,7 @@ Projekat “Vozni park” predstavlja sistem evidencije  podataka o vozilima, vo
 Cilj ovog projekta je da pruži jednostavno rješenje za administraciju vozila i vozača, sa mogućnošću generisanja radnih naloga na osnovu dostupnih podataka. U sklopu projekta, korišćene su sledeće tehnologije:
 Python i FastAPI: Za razvoj backend-a, FastAPI je korišćen zbog svoje jednostavnosti i mogućnosti izrade API-ja koji efikasno komuniciraju sa bazom podataka. Backend podržava CRUD (Create, Read, Update, Delete) operacije, što omogućava sveobuhvatno upravljanje podacima.
 MySQL: Za čuvanje i upravljanje podacima, MySQL baza je korišćena zbog svoje pouzdanosti i široke upotrebe u industriji.
-JavaScript, HTML, CSS i Bootstrap: Na frontend strani, ove tehnologije su korišćene za izradu interaktivnog i responzivnog korisničkog interfejsa. Bootstrap je korišćen za brzu izradu vizuelno i funkcionalnih elemenata interfejsa.
+JavaScript, HTML, CSS i Bootstrap: Na frontend strani, ove tehnologije su korišćene za izradu interaktivnog i responzivnog korisničkog interfejsa. Bootstrap je korišćen za brzu izradu funkcionalnih elemenata interfejsa.
 
 
 # STRUKTURA PROJEKTA
@@ -42,7 +42,7 @@ Backend se sastoji od nekoliko ključnih komponenti:
 
 
 ### API rute
-Rute u ovom projektu su definisane tako što se prvo kreira API router (APIRouter()) kako bi se grupisale rute. Zatim se za svaku rutu definiše dekorator (npr. @router.post("/")). Unutar funkcije za rutu, specificira se šta ruta radi i povezuje se sa bazom koristeći db: Session = Depends(get_db). Nakon toga se šalju zahtevi bazi podataka i dobijaju odgovori. Na kraju, funkcija vraća podatke kao odgovor na zahtev, omogućavajući organizovano i efikasno upravljanje rutama i operacijama nad podacima u bazi.
+Rute u ovom projektu su definisane tako što se prvo kreira API router (APIRouter()) kako bi se grupisale rute. Zatim se za svaku rutu definiše dekorator (npr. @router.post("/")). Unutar funkcije za rutu, specificira se šta ruta radi i povezuje se sa bazom koristeći db: Session = Depends(get_db). Nakon toga se šalju zahtjevi bazi podataka i dobijaju odgovori. Na kraju, funkcija vraća podatke kao odgovor na zahtev, omogućavajući organizovano i efikasno upravljanje rutama i operacijama nad podacima u bazi.
 
 1. Create-API ruta koja omogućava kreiranje novih zapisa u bazi podataka.
 
@@ -134,7 +134,7 @@ class Vozac(Base):
 
 
 ### Šeme
-Šeme za radne naloge definišu strukturu i validaciju podataka pomoću Pydantica. Klase se kreiraju kao naslednici BaseModel iz Pydantica i predstavljaju modele podataka sa atributima i validacionim pravilima. Enumeracija (StatusRadnogNalogaEnum) definiše tri moguća statusa radnog naloga: otvoren, u toku, i završen. Ovo osigurava da atribut statusa može imati samo dozvoljene vrednosti. Bazična klasa (RadniNalogBase) sadrži osnovne atribute radnog naloga, uključujući ID vozila i vozača, opis zadatka, datum i vreme izdavanja, rok završavanja i status.
+Šeme za radne naloge definišu strukturu i validaciju podataka pomoću Pydantica. Klase se kreiraju kao naslednici BaseModel iz Pydantica i predstavljaju modele podataka sa atributima i validacionim pravilima. Enumeracija (StatusRadnogNalogaEnum) definiše tri moguća statusa radnog naloga: otvoren, u toku, i završen. Ovo osigurava da atribut statusa može imati samo dozvoljene vrijednosti. Bazična klasa (RadniNalogBase) sadrži osnovne atribute radnog naloga, uključujući ID vozila i vozača, opis zadatka, datum i vreme izdavanja, rok završavanja i status.
 Klasa za kreiranje (RadniNalogCreate) nasleđuje bazičnu klasu i koristi se za validaciju prilikom kreiranja novih radnih naloga. Klasa za izlazne podatke (RadniNalogOut) dodaje dodatni atribut id i koristi se za povratne podatke prema klijentu. Ova struktura omogućava striktno definisanje i validaciju podataka, čineći aplikaciju sigurnijom i pouzdanijom.
 
 _Šema radnog naloga:_
@@ -168,7 +168,7 @@ class RadniNalogOut(RadniNalogBase):
 Ovaj kod konfiguriše vezu sa MySQL bazom podataka koristeći SQLAlchemy i čita vrijednosti iz .env fajla za postavljanje parametara baze. Prvo se učitavaju vrijednosti iz .env fajla, uključujući URL baze podataka. Zatim se kreira engine koji povezuje SQLAlchemy sa bazom podataka.
 SessionLocal je konfigurisan za kreiranje sesija sa bazom, sa opcijama autocommit=False i autoflush=False za ručno upravljanje transakcijama i osvježavanjem podataka.
 Base je deklarativna baza klasa iz koje će sve SQLAlchemy klase modela naslijediti.
-Funkcija get_db definiše zavisnost koja upravlja životnim ciklusom sesije baze podataka, otvarajući sesiju pre operacija sa bazom i zatvarajući je nakon završetka operacija.
+Funkcija get_db definiše zavisnost koja upravlja životnim ciklusom sesije baze podataka, otvarajući sesiju prije operacija sa bazom i zatvarajući je nakon završetka operacija.
  
 _Sesija:_
 
@@ -203,7 +203,7 @@ def get_db():
 
 
 ### Main fajl
-Ovaj fajl definiše osnovnu konfiguraciju FastAPI aplikacije. Kreira se FastAPI instanca sa prilagođenim URL-ovima za dokumentaciju i dodaje se CORS middleware koji omogućava zahteve sa svih origin-a. Funkcija startup_event inicijalizuje bazu podataka pri pokretanju aplikacije pozivom init_db(). Definiše se jednostavna root ruta koja vraća "Hello, World", a sve definisane API rute uključene su pomoću app.include_router (api_router). 
+Ovaj fajl definiše osnovnu konfiguraciju FastAPI aplikacije. Kreira se FastAPI instanca sa prilagođenim URL-ovima za dokumentaciju i dodaje se CORS middleware koji omogućava zahtjeve sa svih origin-a. Funkcija startup_event inicijalizuje bazu podataka pri pokretanju aplikacije pozivom init_db(). Definiše se jednostavna root ruta koja vraća "Hello, World", a sve definisane API rute uključene su pomoću app.include_router (api_router). 
 
 _Main fajl:_
 
@@ -256,7 +256,7 @@ Frontend aplikacija sadrži sledeće komponente:
 
 
 ### HTML fajlovi
-Interfejs je organizovan kao jednostranična aplikacija sa bočnom navigacijom koja omogućava brzo prebacivanje između delova aplikacije. Glavni dio sadrži tabelu sa podacima vozila (vozača, radnih naloga), uključujući osnovne informacije. Takođe, sadrži dugme za dodavanje novog vozila (vozača, radnih naloga) koje otvara modalni prozor za unos novih podataka. Modalni prozor za unos podataka takođe sadrži formu sa poljima za unos informacija o vozilu (vozača, radnih naloga), kao i polja za odabir tipa goriva i statusa. Dodatno, postoji modalni prozor za izmenu vozila sa sličnom strukturom, omogućavajući ažuriranje postojećih podataka. JavaScript fajl app.js je uključen radi implementacije funkcionalnosti kao što su dodavanje i ažuriranje vozila.
+Interfejs je organizovan kao jednostranična aplikacija sa bočnom navigacijom koja omogućava brzo prebacivanje između dijelova aplikacije. Glavni dio sadrži tabelu sa podacima vozila (vozača, radnih naloga), uključujući osnovne njihove informacije. Takođe, sadrži dugme za dodavanje novog vozila (vozača, radnih naloga) koje otvara modalni prozor za unos novih podataka. Modalni prozor za unos podataka takođe sadrži formu sa poljima za unos informacija o vozilu (vozača, radnih naloga), kao i polja za odabir tipa goriva i statusa. Dodatno, postoji modalni prozor za j vozila sa sličnom strukturom, omogućavajući ažuriranje postojećih podataka. JavaScript fajl app.js je uključen radi implementacije funkcionalnosti kao što su dodavanje i ažuriranje vozila.
 
 
 _Primjer html koda za kreiranje tabele koja prikazuje podatke o vozilima:_
@@ -335,9 +335,17 @@ Takođe, implementirani su i date pickeri za vozače i vozila, dok su za radne n
 _Primjer html koda za kreiranje datetime picker-a:_
 
 ```html
- <input type="datetime-local" value="2023-01-01T12:00" class="form-control"
-                                placeholder="Datum i vrijeme izdavanja" aria-label="Username"
-                                id="datum_i_vrijeme_izdavanja">
+ <form>
+                                <label for="datum_i_vrijeme_izdavanja">Datum i vrijeme izdavanja</label>
+                                <input type="datetime-local" value="2023-01-01T12:00" class="form-control"
+                                    placeholder="Datum i vrijeme izdavanja" aria-label="Username"
+                                    id="datum_i_vrijeme_izdavanja">
+                            </form>
+                            <form>
+                                <label for="rok_zavrsavanja">Rok zavrsavanja</label>
+                                <input type="datetime-local" value="2023-01-01T12:00" class="form-control"
+                                    placeholder="Rok zavrsavanja" aria-label="Username" id="rok_zavrsavanja">
+                            </form>
 ```
  
 _Izgled datetime picker-a u pretraživaču:_
@@ -496,7 +504,7 @@ _Struktura baze podataka:_
 
 ![](images/baza.png)
 
-U projektu “Vozni Park”, veza sa bazom podataka ostvaruje se kroz .env fajl koji sadrži potrebne informacije kao što su link do baze, korisničko ime i lozinka. Ove informacije se koriste za uspostavljanje veze sa bazom podataka tokom sesije. U sesiji se kreira funkcija get_db koja omogućava API rutama da pristupaju bazi podataka. Za potrebe frontend dela aplikacije, postoji constants.js fajl u kojem je definisan base_url koji se koristi u JavaScript funkcijama za komunikaciju sa backend-om putem API-ja. Ovaj pristup omogućava efikasnu i sigurnu komunikaciju između frontend-a i backend-a u projektu “Vozni Park”.
+U projektu “Vozni Park”, veza sa bazom podataka ostvaruje se kroz .env fajl koji sadrži potrebne informacije kao što su link do baze, korisničko ime i lozinka. Ove informacije se koriste za uspostavljanje veze sa bazom podataka tokom sesije. U sesiji se kreira funkcija get_db koja omogućava API rutama da pristupaju bazi podataka. Za potrebe frontend dijela aplikacije, postoji constants.js fajl u kojem je definisan base_url koji se koristi u JavaScript funkcijama za komunikaciju sa backend-om putem API-ja. Ovaj pristup omogućava efikasnu i sigurnu komunikaciju između frontend-a i backend-a u projektu “Vozni Park”.
 
 
 # DOCKER INTEGRACIJA
